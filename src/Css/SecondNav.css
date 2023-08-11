@@ -1,0 +1,19 @@
+.dropdown-toggle {
+  width: 300px;
+  background: transparent;
+  border: none !important;
+}
+.dropdown-toggle:hover {
+  background: transparent;
+  border: none;
+}
+.btn-success {
+  background: transparent !important;
+  border: none;
+
+}
+.dropdown-menuu {
+    height: 277px;
+    width: 238px;
+    left: -1px !important;
+}

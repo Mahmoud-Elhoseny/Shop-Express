@@ -1,0 +1,43 @@
+.navbar {
+  background-color: #254d56;
+}
+
+.form-control {
+  width: 150% !important;
+}
+.dropdown-toggle,
+.nav-link {
+  color: white !important;
+}
+
+.myacc {
+  display: flex;
+  font-size: 14px;
+}
+
+.hr {
+  width: 1px;
+  height: 20px;
+  background: black;
+  margin: 10px;
+}
+
+.nav-link {
+  font-size: 17px;
+  font-weight: bold;
+}
+.nav-link:hover {
+  color: #ffffffb5 !important;
+}
+.heart-icon-div {
+  position: relative;
+}
+.heart-icon-div span {
+  position: absolute;
+  top: 0px;
+  background: black;
+  border-radius: 50%;
+  width: 24px;
+  text-align: center;
+  left: 77px;
+}
