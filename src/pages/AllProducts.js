@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import carousel1 from '../Imgs/carousel1.png'
 import carousel2 from '../Imgs/carousel2.png'
@@ -14,18 +14,55 @@ import box8 from '../Imgs/box8.png'
 import box9 from '../Imgs/box9.png'
 import box10 from '../Imgs/box10.png'
 import "../Css/allProducts.css"
-const AllProducts = () => {
+import Cart from '../Components/Cart'
+import { fetchProducts } from '../store/productSlice';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+const AllProducts = ({ product, isLoading, query }) => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchProducts())
+    }, [dispatch])
+
+    const limitedData = product?.slice(0, 10)
+    const filteredData = product?.length > 0 ? product?.filter((prod) => {
+        if (query === '') {
+            return prod
+        } else if (prod.title.toLowerCase().includes(query.toLowerCase())) {
+            return prod;
+        }
+    })?.map((prod, index) => {
+        return (
+            <Cart key={index} {...prod} />
+
+        )
+    }) : null
+
+    const data = limitedData?.length > 0 ? limitedData?.map((prod, index) => {
+
+        return (
+            <Cart key={index} {...prod} />
+        )
+    }
+    ) : null
     return (
+
         <div className='products'>
             <Carousel>
                 <Carousel.Item>
-                    <img src={carousel1} alt="First slide" />
+                    <Link to='/categories/automotive'>
+                        <img src={carousel1} alt="First slide" />
+                    </Link>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img src={carousel2} alt="Second slide" />
+                    <Link to='/categories/laptops'>
+                        <img src={carousel2} alt="Second slide" />
+                    </Link>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img src={carousel3} alt="Third slide" />
+                    <Link to='/categories/womensdresses'>
+                        <img src={carousel3} alt="Third slide" />
+                    </Link>
                 </Carousel.Item>
             </Carousel>
             <div className='d-flex'>
@@ -77,6 +114,15 @@ const AllProducts = () => {
                     </div>
                 </div>
             </div>
+            {isLoading ? (
+                <div className="loading-container">
+                    <div className="loading-circle"></div>
+                </div>
+            ) : (
+                <ul className="cards">
+                    {query === "" ? data : filteredData}
+                </ul>
+            )}
         </div>
     )
 }

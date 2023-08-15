@@ -1,0 +1,10 @@
+body{
+    font-family: 'Archivo', sans-serif;
+    font-family: 'Inter', sans-serif;
+}
+@media (max-width: 992px) {
+  table {
+    font-size: 14px !important;
+  }
+}
+

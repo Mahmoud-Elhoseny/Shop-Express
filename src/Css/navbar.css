@@ -2,7 +2,7 @@
   background-color: #254d56;
 }
 
-.form-control {
+.colForm {
   width: 150% !important;
 }
 .dropdown-toggle,
@@ -10,10 +10,6 @@
   color: white !important;
 }
 
-.myacc {
-  display: flex;
-  font-size: 14px;
-}
 
 .hr {
   width: 1px;
@@ -24,7 +20,7 @@
 
 .nav-link {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: bold !important;
 }
 .nav-link:hover {
   color: #ffffffb5 !important;
@@ -40,4 +36,16 @@
   width: 24px;
   text-align: center;
   left: 77px;
+}
+.cart-icon-div {
+  position: relative;
+}
+.cart-icon-div span {
+  position: absolute;
+  top: -2px;
+  background: black;
+  border-radius: 50%;
+  width: 24px;
+  text-align: center;
+  left: 57px;
 }
