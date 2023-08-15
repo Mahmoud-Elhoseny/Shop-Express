@@ -1,10 +1,15 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { AiFillDelete } from 'react-icons/ai';
+import { removeFromCartBasket } from '../store/cartSlice';
 
 const CartBasket = ({ isLoading }) => {
     const { carts } = useSelector((state) => state.cart);
-
+    const dispatch = useDispatch()
+    const handleRemove = (product) => {
+        dispatch(removeFromCartBasket(product))
+    }
     const buyedProducts = carts?.map((product, index) => (
         <tr className='text-center' key={index}>
             <td>{index + 1}</td>
@@ -13,6 +18,7 @@ const CartBasket = ({ isLoading }) => {
             <td>{product?.quantity}</td>
             <td>{product?.price * product?.quantity}$</td>
             <td>{Math.trunc(product?.price * product?.quantity - (product?.price * product?.quantity * (product?.discountPercentage / 100)))}$</td>
+            <td><AiFillDelete style={{ cursor: "pointer" }} color='red' className='fs-4' onClick={()=> handleRemove(product)} /></td>
         </tr>
     ));
     const totalAmount = carts.reduce((total, product) => {
@@ -36,6 +42,7 @@ const CartBasket = ({ isLoading }) => {
                                 <th>Product Quantity</th>
                                 <th>Product Price</th>
                                 <th>Product After Discount</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,7 +53,7 @@ const CartBasket = ({ isLoading }) => {
                             )}
                             {buyedProducts?.length > 0 && (
                                 <tr className='text-center fw-bold'>
-                                    <td colSpan="5">Total Amount:</td>
+                                    <td colSpan="6">Total Amount:</td>
                                     <td>{totalAmount}$</td>
                                 </tr>
                             )}

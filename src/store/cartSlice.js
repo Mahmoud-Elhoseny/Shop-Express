@@ -4,11 +4,14 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState: { WishListProducts: [], carts: [] },
     reducers: {
-        addWishlist: (state, action) => {
+        addToWishlist: (state, action) => {
             const isProductInWishlist = state.WishListProducts.some(item => item.id === action.payload.id);
             if (!isProductInWishlist) {
                 state.WishListProducts.push(action.payload);
             }
+        },
+        removeFromWishlist: (state, action) => {
+            state.WishListProducts = state.WishListProducts.filter(item => item.id !== action.payload.id)
         },
         addToCart: (state, action) => {
             const isProductInCart = state.carts.find(item => item.id === action.payload.id)
@@ -28,10 +31,13 @@ const cartSlice = createSlice({
                 state.carts.push(action.payload)
             }
         }
+        , removeFromCartBasket: (state, action) => {
+            state.carts = state.carts.filter((item)=>item.id !== action.payload.id)
+        },
     }
 }
 );
-export const { addWishlist, addToCart } = cartSlice.actions
+export const { addToWishlist, addToCart, removeFromWishlist, removeFromCartBasket } = cartSlice.actions
 
 
 export default cartSlice.reducer

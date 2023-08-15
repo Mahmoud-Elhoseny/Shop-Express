@@ -5,12 +5,12 @@ import { FaHeart } from 'react-icons/fa';
 import { FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addWishlist } from '../store/cartSlice';
+import { addToWishlist } from '../store/cartSlice';
 const Cart = (prod) => {
     const [clicked, setClicked] = useState(false);
     const dispatch = useDispatch()
     const handleAddToWishlist = (prod) => {
-        dispatch(addWishlist(prod));
+        dispatch(addToWishlist(prod));
         setClicked(!clicked);
     };
 
