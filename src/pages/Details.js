@@ -70,33 +70,34 @@ const Details = () => {
                         <div className="thumbnail-div">
                             <img src={mainImage ? mainImage : prod?.thumbnail} alt="" />
                         </div>
-                        <div className="thumb-content">
-                            <div className="text-center">
-                                <h2>{prod?.brand}</h2>
-                                <h2>{prod?.title}</h2>
-                            </div>
-                            <div className="content-prod">
-                                <p>{prod?.description}</p>
-                                <div className="d-flex justify-content-between">
-                                    <p>
-                                        Rating: {prod?.rating}
-                                        <AiFillStar className="mb-1" color="yellow" size={20} />
-                                    </p>
-                                    <p className="pe-2">Stock: {prod?.stock}</p>
-                                </div>
-                                <p className="text-center">
-                                    Price:{prod?.price}
+                    </div>
+
+                    <div className="thumb-content">
+                        <div className="text-center">
+                            <h2>{prod?.brand}</h2>
+                            <h2>{prod?.title}</h2>
+                        </div>
+                        <div className="content-prod">
+                            <p>{prod?.description}</p>
+                            <div className="d-flex justify-content-between">
+                                <p>
+                                    Rating: {prod?.rating}
+                                    <AiFillStar className="mb-1" color="yellow" size={20} />
                                 </p>
+                                <p className="pe-2">Stock: {prod?.stock}</p>
                             </div>
-                            <div className="quantity-buttons text-center">
-                                <h5>Quantity</h5>
-                                <button onClick={() => decreaseQuantity()}>-</button>
-                                <span>{quantity}</span>
-                                <button onClick={() => increaseQuantity()}>+</button>
-                            </div>
-                            <div className="text-center">
-                                <button className="addToCart" onClick={() => handleBuy(prod)}>Add To Cart</button>
-                            </div>
+                            <p className="text-center">
+                                Price:{prod?.price}
+                            </p>
+                        </div>
+                        <div className="quantity-buttons text-center">
+                            <h5>Quantity</h5>
+                            <button onClick={() => decreaseQuantity()}>-</button>
+                            <span>{quantity}</span>
+                            <button onClick={() => increaseQuantity()}>+</button>
+                        </div>
+                        <div className="text-center">
+                            <button className="addToCart" onClick={() => handleBuy(prod)}>Add To Cart</button>
                         </div>
                     </div>
                 </>
