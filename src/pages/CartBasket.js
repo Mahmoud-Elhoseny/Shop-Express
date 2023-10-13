@@ -3,12 +3,15 @@ import { Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiFillDelete } from 'react-icons/ai';
 import { removeFromCartBasket } from '../store/cartSlice';
+import { toast } from 'react-toastify';
 
 const CartBasket = ({ isLoading }) => {
     const { carts } = useSelector((state) => state.cart);
     const dispatch = useDispatch()
     const handleRemove = (product) => {
         dispatch(removeFromCartBasket(product))
+        toast.success('Deleted Successfully')
+
     }
     const buyedProducts = carts?.map((product, index) => (
         <tr className='text-center' key={index}>

@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { AiFillStar } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { AiFillDelete } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 import { removeFromWishlist } from '../store/cartSlice';
+import { toast } from 'react-toastify';
 const CartInWishlist = (prod) => {
     const dispatch = useDispatch()
     const handleRemove = (product) => {
         dispatch(removeFromWishlist(product));
+        toast.success('Deleted Successfully')
     }
 
     return (

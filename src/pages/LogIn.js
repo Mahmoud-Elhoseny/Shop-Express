@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { logIn } from '../store/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { SignupSchema } from '../Validation';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const Login = () => {
                 values.userName = Name;
                 values.password = Password;
                 dispatch(logIn());
+                toast.success('Login Successful')
                 navigate('/');
                 setShowErrorMessage(true);
                 setTimeout(() => {
@@ -31,12 +33,14 @@ const Login = () => {
                 }, 2000);
             } else {
                 setShowErrorMessage(true);
+                toast.error('Invalid Username or Password')
                 setTimeout(() => {
                     setShowErrorMessage(false);
                 }, 2000);
             }
         },
     });
+
 
     return (
         <Container>
@@ -76,9 +80,7 @@ const Login = () => {
                             <div className="error-message">{formik.errors.password}</div>
                         )}
                     </div>
-                    {showErrorMessage && (
-                        <div className="invalid">Invalid username or password</div>
-                    )}
+
 
                     <button className="btn btn-primary" type="submit">
                         Submit

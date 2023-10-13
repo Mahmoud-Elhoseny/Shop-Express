@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router";
 import './App.css'
+import 'react-toastify/dist/ReactToastify.css';
 import NavBarr from "./Components/NavBarr";
 import SecondNav from "./Components/SecondNav";
 import Footer from "./Components/Footer";
@@ -33,6 +34,8 @@ import SignUp from "./pages/SignUp";
 import MyProfile from "./pages/MyProfile";
 import WishList from "./pages/WishList";
 import CartBasket from "./pages/CartBasket";
+import { ToastContainer } from "react-toastify";
+
 <>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -82,6 +85,7 @@ function App() {
     { path: "/wishlist", element: <WishList isLoading={isLoading} query={query} /> },
     { path: "/CartBasket", element: <CartBasket isLoading={isLoading} /> },
   ]
+
   return (
     <>
       <NavBarr handleSearch={handleSearch} />
@@ -92,7 +96,18 @@ function App() {
         ))}
       </Routes>
       <Footer />
-
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }

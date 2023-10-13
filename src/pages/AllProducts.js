@@ -46,7 +46,6 @@ const AllProducts = ({ product, isLoading, query }) => {
     }
     ) : null
     return (
-
         <div className='products'>
             <Carousel>
                 <Carousel.Item>

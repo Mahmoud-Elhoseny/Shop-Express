@@ -6,12 +6,15 @@ import { FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToWishlist } from '../store/cartSlice';
+import { toast } from 'react-toastify';
 const Cart = (prod) => {
     const [clicked, setClicked] = useState(false);
     const dispatch = useDispatch()
     const handleAddToWishlist = (prod) => {
         dispatch(addToWishlist(prod));
         setClicked(!clicked);
+        toast.success('Added to Wishlist!')
+
     };
 
     return (
@@ -20,7 +23,7 @@ const Cart = (prod) => {
                 <img src={prod.thumbnail} alt="mouse corsair" className="mouse" />
                 <div>
                     {clicked ? (
-                        <FaHeart color='black' size={30} className="icon-imgbox" />
+                        <FaHeart color='red' size={30} className="icon-imgbox" />
                     ) : (
                         <FaRegHeart color='gray' className="icon-imgbox" size={30} onClick={() => handleAddToWishlist(prod)} />
                     )}

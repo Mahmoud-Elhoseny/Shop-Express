@@ -2,7 +2,7 @@ import Cart from '../Components/Cart'
 import { useDispatch } from 'react-redux';
 import { fetchProducts } from '../store/productSlice';
 import { useEffect } from 'react';
-const Lighting = ({ isLoading, product ,query}) => {
+const Lighting = ({ isLoading, product, query }) => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchProducts())

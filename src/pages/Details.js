@@ -5,6 +5,7 @@ import { getProduct } from '../store/productSlice';
 import '../Css/details.css';
 import { AiFillStar } from 'react-icons/ai';
 import { addToCart } from '../store/cartSlice';
+import { toast } from 'react-toastify';
 
 const Details = () => {
     const { id } = useParams();
@@ -45,6 +46,7 @@ const Details = () => {
     };
     const handleBuy = (prod) => {
         dispatch(addToCart({ ...prod, quantity }));
+        toast.success('Added to Cart!')
     };
     return (
         <div className="details">
