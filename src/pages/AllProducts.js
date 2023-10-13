@@ -34,7 +34,6 @@ const AllProducts = ({ product, isLoading, query }) => {
     })?.map((prod, index) => {
         return (
             <Cart key={index} {...prod} />
-
         )
     }) : null
 
@@ -45,8 +44,15 @@ const AllProducts = ({ product, isLoading, query }) => {
         )
     }
     ) : null
+    
     return (
-        <div className='products'>
+        <>
+        {isLoading ? (
+            <div className="loading-container">
+                <div className="loading-circle"></div>
+            </div>
+        ) : (
+            <div className='products'>
             <Carousel>
                 <Carousel.Item>
                     <Link to='/categories/automotive'>
@@ -123,6 +129,9 @@ const AllProducts = ({ product, isLoading, query }) => {
                 </ul>
             )}
         </div>
+        )}
+    </>
+        
     )
 }
 
