@@ -20,7 +20,11 @@ const Tops = ({ isLoading, product,query }) => {
             <Cart key={index} {...prod} />
         )
     }
-    ) : null
+    ) : (
+        <div className="no-products">
+        <h1>No Products Found</h1>
+      </div>
+    )
     return (
         <>
             {isLoading ? (

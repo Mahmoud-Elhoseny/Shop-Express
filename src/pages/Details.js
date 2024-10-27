@@ -19,17 +19,12 @@ const Details = () => {
     useEffect(() => {
         dispatch(getProduct(id));
     }, [dispatch, id]);
-
-
-
     const increaseQuantity = () => {
         setQuantity((prevQty) => {
             let tempQty = prevQty + 1;
             if (tempQty > prod?.stock) tempQty = prod?.stock
             return tempQty
-
         })
-
     };
 
     const decreaseQuantity = () => {
@@ -37,7 +32,6 @@ const Details = () => {
             let tempQty = prevQty - 1;
             if (tempQty < 1) tempQty = 1
             return tempQty
-
         })
     };
 
@@ -57,7 +51,7 @@ const Details = () => {
             ) : (
                 <>
                     <div className="d-flex">
-                        <div className="all-prods">
+                        <div className="all-prods ">
                             {prod?.images &&
                                 prod?.images?.map((image, index) => (
                                     <div className="" key={index}>

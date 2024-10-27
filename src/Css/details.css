@@ -28,14 +28,14 @@
 }
 .thumbnail-div img {
   width: 80%;
+  max-height: 700px;
 }
 .thumb-content {
   background: #42485657;
   width: 100%;
   margin: 0px auto;
-  height: 450px;
+  height: 400px;
 }
-
 
 .content-prod {
   padding-left: 23px;

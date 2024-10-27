@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className='text-white'>
+        <footer className='text-white '>
             <h5 className='pt-4 text-center'>CONNECT WITH US</h5>
             <div className='a-footer text-center'>
                 <a href='https://www.linkedin.com/in/mahmoud-elhoseny-910755261' target='_blank'>
