@@ -1,51 +1,160 @@
 .navbar {
   background-color: #254d56;
+  padding: 10px 0;
 }
 
-.colForm {
-  width: 150% !important;
+/* Logo styles */
+.navbar-logo {
+  width: 150px;
+  height: auto;
 }
-.dropdown-toggle,
+
+.egypt-logo {
+  width: 80px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Search input styles */
+.search-input {
+  border-radius: 20px;
+  padding: 8px 15px;
+  border: 1px solid #dee2e6;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 77, 86, 0.2);
+}
+
+/* Navigation links */
+.nav-links-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: white !important;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 8px 12px;
+  text-decoration: none;
 }
 
-
-.hr {
-  width: 1px;
-  height: 20px;
-  background: black;
-  margin: 10px;
-}
-
-.nav-link {
-  font-size: 17px;
-  font-weight: bold !important;
-}
 .nav-link:hover {
-  color: #ffffffb5 !important;
+  color: #e0e0e0 !important;
+  transform: translateY(-1px);
 }
-.heart-icon-div {
-  position: relative;
-}
-.heart-icon-div span {
-  position: absolute;
-  top: 0px;
-  background: black;
-  border-radius: 50%;
-  width: 24px;
-  text-align: center;
-  left: 77px;
-}
+
+/* Icons containers */
+.heart-icon-div,
 .cart-icon-div {
   position: relative;
 }
-.cart-icon-div span {
+
+/* Badge styling */
+.count-badge {
   position: absolute;
-  top: -2px;
-  background: black;
+  top: -8px;
+  right: -8px;
+  background-color: #ff4444;
+  color: white;
   border-radius: 50%;
-  width: 24px;
-  text-align: center;
-  left: 57px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Dropdown styling */
+.dropdown-toggle {
+  color: white !important;
+}
+
+#basic-nav-dropdown {
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+#basic-nav-dropdown:hover {
+  color: #e0e0e0 !important;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 8px 0;
+  }
+
+  .navbar-logo {
+    width: 120px;
+  }
+
+  .egypt-logo {
+    width: 60px;
+    height: 30px;
+    margin-bottom: 10px;
+  }
+
+  .nav-links-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .nav-link {
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .search-input {
+    margin: 10px 0;
+  }
+
+  /* Hamburger menu styling */
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+    padding: 4px 8px;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Badge position adjustment for mobile */
+  .count-badge {
+    top: -5px;
+    right: -5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-logo {
+    width: 100px;
+  }
+
+  .egypt-logo {
+    width: 50px;
+    height: 25px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
 }

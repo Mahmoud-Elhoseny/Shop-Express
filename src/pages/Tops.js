@@ -21,8 +21,23 @@ const Tops = ({ isLoading, product,query }) => {
         )
     }
     ) : (
+        <div className="no-products-container">
         <div className="no-products">
-        <h1>No Products Found</h1>
+          <h2>No Products Found</h2>
+          <p>
+            {query
+              ? `No results found for "${query}". Try a different search term.`
+              : "Sorry, there are currently no women's shoes available."}
+          </p>
+          {query && (
+            <button 
+              className="clear-search"
+              onClick={() => window.location.reload()}
+            >
+              Clear Search
+            </button>
+          )}
+        </div>
       </div>
     )
     return (

@@ -159,3 +159,135 @@
     max-width: 100%;
   }
 }
+
+.cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cart-table {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cart-table th {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.cart-table td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.img-In-Cart {
+    max-height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.product-title {
+    font-weight: 500;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.price {
+    color: #666;
+    text-decoration: line-through;
+}
+
+.discounted-price {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.total-amount {
+    color: #dc3545;
+    font-size: 1.2rem;
+}
+
+.empty-cart-container {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .cart-table {
+        font-size: 0.9rem;
+    }
+    
+    .img-In-Cart {
+        max-height: 60px;
+    }
+    
+    .product-title {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cart-table {
+        font-size: 0.8rem;
+    }
+    
+    .img-In-Cart {
+        max-height: 50px;
+    }
+    
+    .product-title {
+        max-width: 100px;
+    }
+}
+
+.empty-wishlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 2rem;
+}
+
+.empty-wishlist-content {
+    text-align: center;
+    max-width: 500px;
+}
+
+.empty-wishlist-icon {
+    font-size: 4rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.empty-wishlist h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.empty-wishlist p {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.start-shopping-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.start-shopping-btn:hover {
+    background-color: #0056b3;
+}

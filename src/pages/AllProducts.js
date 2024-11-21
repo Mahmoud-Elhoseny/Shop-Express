@@ -31,107 +31,79 @@ const AllProducts = ({ product, isLoading, query }) => {
         } else if (prod.title.toLowerCase().includes(query.toLowerCase())) {
             return prod;
         }
-    })?.map((prod, index) => {
-        return (
-            <Cart key={index} {...prod} />
-        )
-    }) : null
+        return null;
+    })?.map((prod, index) => (
+        <Cart key={prod.id || index} {...prod} />
+    )) : null
 
-    const data = limitedData?.length > 0 ? limitedData?.map((prod, index) => {
-
-        return (
-            <Cart key={index} {...prod} />
-        )
-    }
-    ) : null
+    const data = limitedData?.length > 0 
+        ? limitedData?.map((prod, index) => (
+            <Cart key={prod.id || index} {...prod} />
+          ))
+        : null
     
-    return (
-        <>
-        {isLoading ? (
+    if (isLoading) {
+        return (
             <div className="loading-container">
                 <div className="loading-circle"></div>
             </div>
-        ) : (
-            <div className='products'>
-            <Carousel>
+        )
+    }
+
+    return (
+        <div className='products'>
+            <Carousel fade>
                 <Carousel.Item>
                     <Link to='/categories/automotive'>
-                        <img src={carousel1} alt="First slide" />
+                        <img src={carousel1} alt="Automotive deals" />
                     </Link>
                 </Carousel.Item>
                 <Carousel.Item>
                     <Link to='/categories/laptops'>
-                        <img src={carousel2} alt="Second slide" />
+                        <img src={carousel2} alt="Laptop deals" />
                     </Link>
                 </Carousel.Item>
                 <Carousel.Item>
                     <Link to='/categories/womensdresses'>
-                        <img src={carousel3} alt="Third slide" />
+                        <img src={carousel3} alt="Women's fashion" />
                     </Link>
                 </Carousel.Item>
             </Carousel>
-            <div className='d-flex'>
-                <div className='big-box ps-5 pe-5'>
-                    <h2 className='text-center'>More reasons to shop</h2>
-                    <div className='d-flex'>
-                        <div className='pe-1'>
-                            <img src={box5} width={195} alt='box5' />
-                        </div>
-                        <div>
-                            <img src={box6} width={195} alt='box6' />
-                        </div>
-                    </div>
-                    <div className='d-flex' >
-                        <div className='pe-1'>
-                            <img src={box7} width={195} alt='box7' />
-                        </div>
-                        <div>
-                            <img src={box8} width={195} alt='box8' />
-                        </div>
+
+            <div className='features-container'>
+                <div className='big-box'>
+                    <h2>More reasons to shop</h2>
+                    <div className='box-grid'>
+                        <img src={box5} alt='Special offer 1' />
+                        <img src={box6} alt='Special offer 2' />
+                        <img src={box7} alt='Special offer 3' />
+                        <img src={box8} alt='Special offer 4' />
                     </div>
                 </div>
-                <div className='big-box ps-5 pe-5'>
-                    <h2 className='text-center'>Weekend deals</h2>
-                    <div className='d-flex '>
-                        <div className='pe-1'>
-                            <img src={box1} width={195} alt='box1' />
-                        </div>
-                        <div>
-                            <img src={box2} width={195} alt='box2' />
-                        </div>
-                    </div>
-                    <div className='d-flex' >
-                        <div className='pe-1'>
-                            <img src={box3} width={195} alt='box3' />
-                        </div>
-                        <div>
-                            <img src={box4} width={195} alt='box4' />
-                        </div>
+
+                <div className='big-box'>
+                    <h2>Weekend deals</h2>
+                    <div className='box-grid'>
+                        <img src={box1} alt='Weekend deal 1' />
+                        <img src={box2} alt='Weekend deal 2' />
+                        <img src={box3} alt='Weekend deal 3' />
+                        <img src={box4} alt='Weekend deal 4' />
                     </div>
                 </div>
-                <div className='big-box ps-5 pe-5 '>
-                    <h2 className='text-center'>In focus</h2>
-                    <div className='pe-3'>
-                        <img className='imgwid ' src={box9} width={400} alt='box9 ' />
-                    </div>
-                    <div className='pt-2'>
-                        <img className='imgwid' src={box10} width={400} alt='box10' />
+
+                <div className='big-box'>
+                    <h2>In focus</h2>
+                    <div className='box-grid'>
+                        <img src={box9} alt='Featured item 1' style={{gridColumn: '1 / -1'}} />
+                        <img src={box10} alt='Featured item 2' style={{gridColumn: '1 / -1'}} />
                     </div>
                 </div>
             </div>
-            {isLoading ? (
-                <div className="loading-container">
-                    <div className="loading-circle"></div>
-                </div>
-            ) : (
-                <ul className="cards">
-                    {query === "" ? data : filteredData}
-                </ul>
-            )}
+
+            <ul className="cards">
+                {query === "" ? data : filteredData}
+            </ul>
         </div>
-        )}
-    </>
-        
     )
 }
 

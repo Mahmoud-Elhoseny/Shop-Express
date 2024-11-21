@@ -1,18 +1,223 @@
-.dropdown-togglee {
-  width: 175px;
-  background: transparent;
-  border: none !important;
-}
-.dropdown-togglee:hover {
-  background: transparent;
-  border: none;
+.second-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0;
 }
 
-.btn-success {
-  background: transparent !important;
-  border: none;
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.75rem;
 }
-.dropdown-item.active,
-.dropdown-item:active {
-  background: none !important;
+
+.categories-dropdown-wrapper {
+  flex-shrink: 0;
+  min-width: auto;
+}
+
+.dropdown-togglee {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.horizontal-divider {
+  width: 1px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  margin: 0 0.25rem;
+}
+
+.scrollable-nav {
+  flex-grow: 1;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-right: 0.5rem;
+}
+
+.scrollable-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-nav .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+  padding: 6px 12px !important;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  color: white !important;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 575.98px) {
+  .nav-wrapper {
+    gap: 0.5rem;
+  }
+  
+  .dropdown-togglee {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 5px 10px !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .nav-link {
+    padding: 6px 12px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .nav-link {
+    padding: 6px 14px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-wrapper {
+    gap: 1rem;
+  }
+
+  .dropdown-togglee {
+    padding: 8px 16px;
+  }
+
+  .nav-link {
+    padding: 8px 16px !important;
+  }
+}
+
+/* Hover effects for larger screens */
+@media (min-width: 768px) {
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white !important;
+  }
+}
+
+/* Categories dropdown styles */
+.categories-dropdown {
+  width: auto;
+  min-width: 250px;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.categories-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .categories-dropdown {
+    position: fixed !important;
+    top: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100%;
+    max-height: 75vh;
+    overflow-y: auto;
+    margin-top: 0;
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile styles (up to 767px) */
+@media (max-width: 767px) {
+  .nav-wrapper {
+    justify-content: center;
+  }
+  
+  .dropdown-togglee {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .scrollable-nav {
+    display: none;
+  }
+}
+
+/* Tablet styles (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .nav-wrapper {
+    gap: 0.75rem;
+  }
+
+  .dropdown-togglee {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 6px 12px !important;
+  }
+
+  .scrollable-nav {
+    margin-right: 0.5rem;
+  }
+
+  .scrollable-nav .nav {
+    gap: 0.5rem;
+  }
+}
+
+/* Laptop/Desktop styles (992px and up) */
+@media (min-width: 992px) {
+  .nav-wrapper {
+    gap: 1rem;
+  }
+
+  .dropdown-togglee {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 8px 16px !important;
+  }
+
+  .scrollable-nav {
+    margin-right: 1rem;
+  }
+
+  .scrollable-nav .nav {
+    gap: 0.5rem;
+  }
+}
+
+/* Remove any previous mobile-specific nav styles that might conflict */
+.scrollable-categories {
+  display: none;
 }

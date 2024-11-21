@@ -21,12 +21,6 @@ import MensShirts from './pages/MensShirts';
 import MensShoes from './pages/MensShoes';
 import MensWatches from './pages/MensWatches';
 import WomensWatches from './pages/WomensWatches';
-import WomensBags from './pages/WomensBags';
-import WomensJewellery from './pages/WomensJewellery';
-import Sunglasses from './pages/Sunglasses';
-import Automotive from './pages/Automotive';
-import Motorcycle from './pages/Motorcycle';
-import Lighting from './pages/Lighting';
 import { useEffect, useState } from 'react';
 import { fetchProducts } from './store/productSlice';
 import LogIn from './pages/LogIn';
@@ -148,46 +142,7 @@ function App() {
         <WomensWatches product={product} isLoading={isLoading} query={query} />
       ),
     },
-    {
-      path: '/categories/womensbags',
-      element: (
-        <WomensBags product={product} isLoading={isLoading} query={query} />
-      ),
-    },
-    {
-      path: '/categories/womensjewellery',
-      element: (
-        <WomensJewellery
-          product={product}
-          isLoading={isLoading}
-          query={query}
-        />
-      ),
-    },
-    {
-      path: '/categories/sunglasses',
-      element: (
-        <Sunglasses product={product} isLoading={isLoading} query={query} />
-      ),
-    },
-    {
-      path: '/categories/automotive',
-      element: (
-        <Automotive product={product} isLoading={isLoading} query={query} />
-      ),
-    },
-    {
-      path: '/categories/motorcycle',
-      element: (
-        <Motorcycle product={product} isLoading={isLoading} query={query} />
-      ),
-    },
-    {
-      path: '/categories/lighting',
-      element: (
-        <Lighting product={product} isLoading={isLoading} query={query} />
-      ),
-    },
+
     { path: '/login', element: <LogIn /> },
     { path: '/signup', element: <SignUp /> },
     { path: '/myprofile', element: <MyProfile /> },

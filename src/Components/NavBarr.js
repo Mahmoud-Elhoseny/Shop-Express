@@ -24,61 +24,68 @@ const NavBarr = ({ handleSearch }) => {
         <>
             <Navbar expand="lg" className="navbar">
                 <Container>
-                    <Link to='/'><Navbar.Brand ><img src={logo} alt='logo' width="150" /></Navbar.Brand></Link>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Link to='/'><Navbar.Brand><img src={logo} alt='logo' className="navbar-logo" /></Navbar.Brand></Link>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav"  />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <img src={egyptLogo} alt='logo' width="80" height="40" />
+                        <Nav className="me-auto align-items-center">
+                            <img src={egyptLogo} alt='logo' className="egypt-logo" />
                             <NavDropdown title="Deliver to" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#">Home</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
-                    </Navbar.Collapse>
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <Form>
-                                <Row>
-                                    <Col xs="auto" >
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="What are you looking for?"
-                                            className=" mr-sm-2 colForm"
-                                            onChange={(e) => handleSearch(e.target.value)}
-                                        />
-                                    </Col>
-                                </Row>
+                        
+                        <Nav className="w-100 my-2 my-lg-0">
+                            <Form className="w-100">
+                                <Form.Control
+                                    type="text"
+                                    placeholder="What are you looking for?"
+                                    className="search-input"
+                                    onChange={(e) => handleSearch(e.target.value)}
+                                />
                             </Form>
                         </Nav>
-                    </Navbar.Collapse>
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto">
-                            {isLoggedIn ? <Link className='nav-link' to="/myprofile">Ahlan {Name}!</Link>
-                                :
-                                <Link className='nav-link' to='/login'>LogIn<BiLogIn size={23} /></Link>}
-                            {isLoggedIn ? <Link className='nav-link' to='/' onClick={() => dispatch(logIn())}>LogOut <BiSolidLogOut size={23} /></Link> : ""}
-                            <p className='hr d-none d-md-none d-lg-block' ></p>
-                            <div className='heart-icon-div'>
-                                <Link to='/wishlist' className='nav-link'>Wishlist<AiOutlineHeart size={23} />{WishListProducts.length === 0 ? <span></span>
-                                    : <span>{WishListProducts.length}</span>
-                                }</Link>
-                            </div>
-                            <p className='hr d-none d-md-none d-lg-block'></p>
-                            <div className='cart-icon-div'>
-                                <Link className='nav-link' to="/CartBasket">Cart <AiOutlineShoppingCart size={23} />
-                                    {carts.length === 0 ? <span></span>
-                                        : <span>{carts.length}</span>
-                                    }
-                                </Link>
+
+                        <Nav className="ms-auto align-items-center">
+                            <div className="nav-links-container">
+                                {isLoggedIn ? (
+                                    <>
+                                        <Link className='nav-link' to="/myprofile">
+                                            <span>Ahlan {Name}!</span>
+                                        </Link>
+                                        <Link className='nav-link' to='/' onClick={() => dispatch(logIn())}>
+                                            <span>LogOut</span>
+                                            <BiSolidLogOut size={23} />
+                                        </Link>
+                                    </>
+                                ) : (
+                                    <Link className='nav-link' to='/login'>
+                                        <span>LogIn</span>
+                                        <BiLogIn size={23} />
+                                    </Link>
+                                )}
+                                
+                                <div className='heart-icon-div'>
+                                    <Link to='/wishlist' className='nav-link'>
+                                        <span>Wishlist</span>
+                                        <AiOutlineHeart size={23} />
+                                        {WishListProducts.length > 0 && <span className="count-badge">{WishListProducts.length}</span>}
+                                    </Link>
+                                </div>
+                                
+                                <div className='cart-icon-div'>
+                                    <Link className='nav-link' to="/CartBasket">
+                                        <span>Cart</span>
+                                        <AiOutlineShoppingCart size={23} />
+                                        {carts.length > 0 && <span className="count-badge">{carts.length}</span>}
+                                    </Link>
+                                </div>
                             </div>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-
-
         </>
     );
 }
-
 
 export default NavBarr
